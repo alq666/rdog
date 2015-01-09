@@ -1,6 +1,5 @@
 require(RCurl)
 require(jsonlite)
-require(zoo)
 
 to_epoch <- function(t) {
   return(as.POSIXct(t/1000, origin="1970-01-01"))
