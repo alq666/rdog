@@ -1,5 +1,6 @@
 require(RCurl)
 require(jsonlite)
+require(data.table)
 
 to_epoch <- function(t) {
   return(as.POSIXct(t/1000, origin="1970-01-01"))
