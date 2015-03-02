@@ -1,6 +1,6 @@
 require(RCurl)
 require(jsonlite)
-require(data.table)
+require(zoo)
 
 to_epoch <- function(t) {
   return(as.POSIXct(t/1000, origin="1970-01-01"))
@@ -25,7 +25,7 @@ query <- function(api_key, application_key, query, from_t, to_t) {
     # collect time parameters
     start <- max(timeseries$start)
     end <- max(timeseries$end)
-    freq <- min(timeseries$interval)
+    interval <- min(timeseries$interval)
     
     # Extract timestamps from the first list
     # They will be identical across all groups
@@ -35,10 +35,11 @@ query <- function(api_key, application_key, query, from_t, to_t) {
     v <- mapply(values, pointlist)
     
     # build the time series
-    # df <- ts(v, start=start, end=end, frequency=freq, names=scope)
+    df <- zooreg(v, order.by=timestamps, frequency=1/interval)
+    colnames(df) <- scope
     
   } else {
-    df <- data.frame()
+    df <- zoo()
   }
   return(df)
 }
