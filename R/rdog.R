@@ -39,7 +39,7 @@ query <- function(api_key, application_key, query, from_t, to_t) {
     colnames(df) <- scope
     
   } else {
-    df <- zoo()
+    df <- xts()
   }
   return(df)
 }

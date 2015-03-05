@@ -2,10 +2,10 @@
 \alias{query}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%%  ~~function to do ... ~~
+%% query
 }
 \description{
-%%  ~~ A concise (1-5 lines) description of what the function does. ~~
+%% Query metrics via the Datadog API and turn them into time series
 }
 \usage{
 query(api_key, application_key, query, from_t, to_t)
@@ -13,19 +13,19 @@ query(api_key, application_key, query, from_t, to_t)
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{api_key}{
-%%     ~~Describe \code{api_key} here~~
+%%     Your Datadog account's API key, found at https://app.datadoghq.com/account/settings#api
 }
   \item{application_key}{
-%%     ~~Describe \code{application_key} here~~
+%%     A Datadog Application key, also found at https://app.datadoghq.com/account/settings#api
 }
   \item{query}{
-%%     ~~Describe \code{query} here~~
+%%     A query using Datadog's syntax, documented at https://docs.datadoghq.com
 }
   \item{from_t}{
-%%     ~~Describe \code{from_t} here~~
+%%     The start of the time window for the query, expressed a POSIX timestamp
 }
   \item{to_t}{
-%%     ~~Describe \code{to_t} here~~
+%%     The end of the time window for the query, also expressed a POSIX timestamp
 }
 }
 \details{
@@ -39,10 +39,10 @@ query(api_key, application_key, query, from_t, to_t)
 %% ...
 }
 \references{
-%% ~put references to the literature/web site here ~
+%% See https://doc.datadoghq.com for documentation on queries
 }
 \author{
-%%  ~~who you are~~
+%% Alexis Le-Quoc
 }
 \note{
 %%  ~~further notes~~
@@ -81,7 +81,7 @@ function (api_key, application_key, query, from_t, to_t)
         colnames(df) <- scope
     }
     else {
-        df <- zoo()
+        df <- xts()
     }
     return(df)
   }
