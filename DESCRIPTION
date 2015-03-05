@@ -1,0 +1,14 @@
+Package: rdog
+Type: Package
+Title: Connect R to Datadog
+Version: 1.0
+Date: 2015-03-04
+Author: Alexis Le-Quoc
+Maintainer: Alexis Le-Quoc <alq666@gmail.com>
+Description: A technique for detecting anomalies in seasonal univariate time series.
+ByteCompile: yes
+Imports: jsonlite, RCurl, xts
+Depends: R (>= 2.10.0)
+License: GPL-3
+LazyData: true
+Packaged: 2015-03-04 07:54:07 UTC; alq666
