@@ -21,8 +21,5 @@ License: \tab GPL 3\cr
 Alexis Le-Quoc
 
 Maintainer: Alexis Le-Quoc <alq666@gmail.com>
-~~ The author and/or maintainer of the package ~~
-}
-\references{
 }
 \keyword{ package }
