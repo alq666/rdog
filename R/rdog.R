@@ -10,7 +10,7 @@ values <- function(l) {
   return(l[, 2])
 }
 
-query <- function(api_key, application_key, query, from_t, to_t) {
+dogq <- function(api_key, application_key, query, from_t, to_t) {
   res <- getForm('https://app.datadoghq.com/api/v1/query', api_key=api_key, application_key=application_key, from=from_t, to=to_t, query=query)
   parsed <- fromJSON(res)
   if (parsed[['status']] == "ok") {

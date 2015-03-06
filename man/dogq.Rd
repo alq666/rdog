@@ -1,57 +1,44 @@
-\name{query}
-\alias{query}
+\name{dogq}
+\alias{dogq}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-%% query
+dogq
 }
 \description{
-%% Query metrics via the Datadog API and turn them into time series
+Query metrics via the Datadog API and turn them into time series
 }
 \usage{
-query(api_key, application_key, query, from_t, to_t)
+dogq(api_key, application_key, query, from_t, to_t)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{api_key}{
-%%     Your Datadog account's API key, found at https://app.datadoghq.com/account/settings#api
+       Your Datadog account's API key, found at https://app.datadoghq.com/account/settings#api
 }
   \item{application_key}{
-%%     A Datadog Application key, also found at https://app.datadoghq.com/account/settings#api
+       A Datadog Application key, also found at https://app.datadoghq.com/account/settings#api
 }
   \item{query}{
-%%     A query using Datadog's syntax, documented at https://docs.datadoghq.com
+       A query using Datadog's syntax, documented at https://docs.datadoghq.com
 }
   \item{from_t}{
-%%     The start of the time window for the query, expressed a POSIX timestamp
+        The start of the time window for the query, expressed a POSIX timestamp
 }
   \item{to_t}{
-%%     The end of the time window for the query, also expressed a POSIX timestamp
+       The end of the time window for the query, also expressed a POSIX timestamp
 }
 }
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+None
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+A set of \code{xts} indexed by time, each named appropriately depending on the query.
 }
 \references{
-%% See https://doc.datadoghq.com for documentation on queries
+See https://doc.datadoghq.com for documentation on queries
 }
 \author{
-%% Alexis Le-Quoc
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+Alexis Le-Quoc
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -88,5 +75,4 @@ function (api_key, application_key, query, from_t, to_t)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ ~kwd1 }
-\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line
+\keyword{datasets}
