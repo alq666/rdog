@@ -10,7 +10,7 @@ values <- function(l) {
   return(l[, 2])
 }
 
-dogq <- function(api_key, application_key, query, from_t, to_t) {
+dogq <- function(api_key, application_key, query, from_t, to_t, to_ts=FALSE) {
   res <- getForm('https://app.datadoghq.com/api/v1/query', api_key=api_key, application_key=application_key, from=from_t, to=to_t, query=query)
   parsed <- fromJSON(res)
   if (parsed[['status']] == "ok") {
@@ -35,9 +35,12 @@ dogq <- function(api_key, application_key, query, from_t, to_t) {
     v <- mapply(values, pointlist)
     
     # build the time series
-    df <- xts(v, order.by=timestamps, frequency=1/interval)
+    if (to_ts) {
+      df <- ts(v, frequency=60/interval)
+    } else {
+      df <- xts(v, order.by=timestamps, frequency=60/interval)
+    }
     colnames(df) <- scope
-    
   } else {
     df <- xts()
   }
