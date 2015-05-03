@@ -47,10 +47,11 @@ dogq <- function(api_key, application_key, query, from_t, to_t, as_df = FALSE) {
         # build the time series
         if (as_df) {
             df <- data.frame(timestamps, v)
+            colnames(df) <- c('time', scope)
         } else {
             df <- xts::xts(v, order.by = timestamps, frequency = freq(interval))
+            colnames(df) <- scope
         }
-        colnames(df) <- scope
     } else {
         df <- xts()
     }
