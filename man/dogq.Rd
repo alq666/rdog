@@ -8,7 +8,7 @@ dogq
 Query metrics via the Datadog API and turn them into time series
 }
 \usage{
-dogq(api_key, application_key, query, from_t, to_t, to_ts)
+dogq(api_key, application_key, query, from_t, to_t, as_df)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -27,8 +27,8 @@ dogq(api_key, application_key, query, from_t, to_t, to_ts)
   \item{to_t}{
        The end of the time window for the query, also expressed a POSIX timestamp
   }
-  \item{to_ts}{
-       Decision to return xts or ts
+  \item{as_df}{
+       Decision to return an xts time series or a data frame
   }
 }
 \details{
@@ -49,7 +49,7 @@ Alexis Le-Quoc
 ##--	or do  help(data=index)  for the standard data sets.
 
 ## The function is currently defined as
-function(api_key, application_key, query, from_t, to_t, to_ts=FALSE)
+function(api_key, application_key, query, from_t, to_t, as_df=FALSE)
 {
   res <- getForm('https://app.datadoghq.com/api/v1/query', api_key=api_key, application_key=application_key, from=from_t, to=to_t, query=query)
   parsed <- fromJSON(res)
@@ -66,8 +66,8 @@ function(api_key, application_key, query, from_t, to_t, to_ts=FALSE)
     interval <- min(timeseries$interval)
     timestamps <- to_epoch(pointlist[[1]][, 1])
     v <- mapply(values, pointlist)
-    if (to_ts) {
-      df <- ts(v, frequency=60/interval)
+    if (as_df) {
+      df <- data.frame(timestamps, v)
     } else {
       df <- xts(v, order.by=timestamps, frequency=60/interval)
     }

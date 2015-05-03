@@ -9,16 +9,16 @@ values <- function(l) {
 #' Compute the frequency based on the interval
 freq <- function(i) {
     if (i <= 60) {
-        return(60/i)
+        return(60)
     } else if (60 < i && i <= 3600) {
-        return(3600/i)
+        return(24)
     } else {
-        return(86400/i)
+        return(7)
     }
 }
 
 #' @export
-dogq <- function(api_key, application_key, query, from_t, to_t, to_ts = FALSE) {
+dogq <- function(api_key, application_key, query, from_t, to_t, as_df = FALSE) {
     res <- RCurl::getForm("https://app.datadoghq.com/api/v1/query", api_key = api_key, application_key = application_key, 
         from = from_t, to = to_t, query = query)
     parsed <- jsonlite::fromJSON(res)
@@ -39,13 +39,14 @@ dogq <- function(api_key, application_key, query, from_t, to_t, to_ts = FALSE) {
         
         # Extract timestamps from the first list They will be identical across all groups
         timestamps <- to_epoch(pointlist[[1]][, 1])
+        print(class(timestamps))
         
         # Collect all series values (accessible as [, 2])
         v <- mapply(values, pointlist)
         
         # build the time series
-        if (to_ts) {
-            df <- ts(v, frequency = freq(interval))
+        if (as_df) {
+            df <- data.frame(timestamps, v)
         } else {
             df <- xts::xts(v, order.by = timestamps, frequency = freq(interval))
         }
