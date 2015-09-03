@@ -11,14 +11,14 @@ require(rdog)
 api <- 'abc'
 app <- 'def'
 
-to_ts <- as.integer(Sys.time())
-from_ts <- to_ts - 3600
+to_t <- as.integer(Sys.time())
+from_t <- to_ts - 3600
 
 # Get an xts object to keep timestamps
-results <- dogq(api, app, 'avg:system.cpu.idle{*}', from_ts=from_ts, to_ts=to_ts)
+results <- dogq(api, app, 'avg:system.cpu.idle{*}', from_t=from_t, to_t=to_t)
 plot(results)
 
 # Get a data frame
-results <- dogq(api, app, 'avg:system.cpu.idle{*}', from_ts=from_ts, to_ts=to_ts, TRUE)
+results <- dogq(api, app, 'avg:system.cpu.idle{*}', from_t=from_t, to_t=to_t, TRUE)
 plot(results)
 ```
