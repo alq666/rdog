@@ -11,8 +11,13 @@
 #' dog_metrics('api_key', 'app_key', 1478872763, as.integer(Sys.time()))
 
 dog_query <- function(api_key, application_key, query, from_t, to_t, as_df = FALSE) {
-    res <- RCurl::getForm("https://app.datadoghq.com/api/v1/query", api_key = api_key, application_key = application_key, 
-        from = from_t, to = to_t, query = query)
+    res <- RCurl::getForm("https://app.datadoghq.com/api/v1/query", 
+        api_key = api_key, 
+        application_key = application_key, 
+        from = from_t, 
+        to = to_t, 
+        query = query
+    )
     parsed <- jsonlite::fromJSON(res)
     if (parsed[["status"]] == "ok") {
         timeseries <- parsed[["series"]]  # data frame
