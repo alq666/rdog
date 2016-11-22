@@ -6,6 +6,9 @@
 \usage{
 freq(i)
 }
+\arguments{
+\item{i}{Frequency}
+}
 \description{
 Compute the frequency based on the interval
 }
