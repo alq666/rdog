@@ -1,3 +1,5 @@
+#' Convert time into POSIX'
+#' @param t Time in seconds
 to_epoch <- function(t) {
     return(as.POSIXct(t/1000, origin = "1970-01-01"))
 }
@@ -7,6 +9,7 @@ values <- function(l) {
 }
 
 #' Compute the frequency based on the interval
+#' @param i Frequency
 freq <- function(i) {
     if (i <= 60) {
         return(60)
