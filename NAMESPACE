@@ -1,5 +1,4 @@
-export("dog_metrics")
-exportPattern("dogq")
+exportPattern("^dog_")
 importFrom("RCurl")
 importFrom("jsonlite")
 importFrom("xts")
