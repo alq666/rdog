@@ -4,17 +4,19 @@
 \alias{dog_metrics}
 \title{Metrics}
 \usage{
-dog_metrics(api_key, application_key)
+dog_metrics(api_key, application_key, from_t)
 }
 \arguments{
 \item{api_key}{Your Datadog API key}
 
 \item{application_key}{Your Application Key}
+
+\item{from_t}{Start of time range}
 }
 \description{
-Return a list of all active metrics
+Return a list of all active metrics from given time until now
 }
 \examples{
-dog_metrics()
+dog_metrics('api_key', 'app_key', 1478872763)
 }
 
