@@ -1,3 +1,4 @@
+export("dog_metrics")
 exportPattern("dogq")
 importFrom("RCurl")
 importFrom("jsonlite")
