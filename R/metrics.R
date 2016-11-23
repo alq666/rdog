@@ -6,7 +6,7 @@
 #' @param from_t Start of time range 
 #' @export
 #' @examples
-#' dog_metrics('api_key', 'app_key', 1478872763)
+#' \dontrun{dog_metrics('api_key', 'app_key', 1478872763)}
 dog_metrics <- function(api_key, application_key, from_t) {
     res <- RCurl::getForm("https://app.datadoghq.com/api/v1/metrics", 
         api_key = api_key,
