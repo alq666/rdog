@@ -1,4 +1,4 @@
 exportPattern("^dog_")
 importFrom("RCurl")
 importFrom("jsonlite")
-importFrom("xts")
+import("xts")
