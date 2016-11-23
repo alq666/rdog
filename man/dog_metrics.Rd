@@ -17,6 +17,6 @@ dog_metrics(api_key, application_key, from_t)
 Return a list of all active metrics from given time until now
 }
 \examples{
-dog_metrics('api_key', 'app_key', 1478872763)
+\dontrun{dog_metrics('api_key', 'app_key', 1478872763)}
 }
 

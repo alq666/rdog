@@ -11,7 +11,7 @@ dog_query(api_key, application_key, query, from_t, to_t, as_df = FALSE)
 
 \item{application_key}{Your Application Key}
 
-\item{query}{}
+\item{query}{You search query}
 
 \item{from_t}{Start of time range}
 
@@ -23,6 +23,6 @@ dog_query(api_key, application_key, query, from_t, to_t, as_df = FALSE)
 Querying
 }
 \examples{
-dog_metrics('api_key', 'app_key', 1478872763, as.integer(Sys.time()))
+\dontrun{dog_query('api_key', 'app_key', 1478872763, as.integer(Sys.time()), 'avg:system.cpu.idle{*}')}
 }
 

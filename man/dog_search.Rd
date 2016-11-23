@@ -11,12 +11,12 @@ dog_search(api_key, application_key, query)
 
 \item{application_key}{Your Application Key}
 
-\item{query}{Query string.}
+\item{query}{Query string}
 }
 \description{
 Search for entries from the last 24 hours
 }
 \examples{
-dog_search('api_key', 'app_key', 'test')
+\dontrun{dog_search('api_key', 'app_key', 'test')}
 }
 
