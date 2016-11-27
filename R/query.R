@@ -36,7 +36,6 @@ dog_query <- function(api_key, application_key, query, from_t, to_t, as_df = FAL
         
         # Extract timestamps from the first list They will be identical across all groups
         timestamps <- to_epoch(pointlist[[1]][, 1])
-        print(class(timestamps))
         
         # Collect all series values (accessible as [, 2])
         v <- mapply(values, pointlist)
