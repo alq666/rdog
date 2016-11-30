@@ -8,10 +8,12 @@ Maintainer: Alexis Le-Quoc <alq666@gmail.com>
 Description: A simple interface between R and Datadog.
 ByteCompile: yes
 Imports:
-  jsonlite (>= 0.9.14),
-  RCurl (>= 1.95),
-  xts (>= 0.9)
-Depends: R (>= 2.10.0)
+    jsonlite (>= 0.9.14),
+    RCurl (>= 1.95),
+    xts (>= 0.9)
+Depends:
+    R (>= 2.10.0)
 License: GPL-3
 LazyData: true
 Packaged: 2015-03-04 07:54:07 UTC; alq666
+RoxygenNote: 5.0.1
